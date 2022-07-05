@@ -8,8 +8,6 @@ namespace Yuuta.EscapeGame {
         [SerializeField] private GameObject _firstScene;
         [SerializeField] private GameObject _winGameObject;
 
-        private HashSet<string> _ownItems = new HashSet<string>();
-
         void Start()
         {
             _firstScene.SetActive(true);
@@ -19,18 +17,5 @@ namespace Yuuta.EscapeGame {
         {
             _winGameObject.SetActive(true);
         }
-        
-        public void GetItem(string itemId)
-        {
-            _ownItems.Add(itemId);
-        }
-
-        public void UseItem(string itemId)
-        {
-            _ownItems.Remove(itemId);
-        }
-
-        public bool HasItem(string itemId)
-            => _ownItems.Contains(itemId);
     }
 }

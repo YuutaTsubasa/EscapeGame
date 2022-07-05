@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Yuuta.EscapeGame
 {
-    public class Lock : MonoBehaviour
+    public class Lock : Condition
     {
         [SerializeField] private GameObject[] _items;
         [SerializeField] private int _answerIndex = 0;
@@ -53,7 +53,7 @@ namespace Yuuta.EscapeGame
             OnChange?.Invoke();
         }
 
-        public bool IsCorrect()
+        public override bool Satisfy()
             => _currentIndex == _answerIndex;
 
         public void Disable()
